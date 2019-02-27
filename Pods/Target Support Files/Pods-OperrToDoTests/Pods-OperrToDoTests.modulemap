@@ -1,0 +1,6 @@
+framework module Pods_OperrToDoTests {
+  umbrella header "Pods-OperrToDoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
