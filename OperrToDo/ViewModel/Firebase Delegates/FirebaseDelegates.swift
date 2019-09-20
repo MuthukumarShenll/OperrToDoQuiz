@@ -89,7 +89,8 @@ class FirebaseDelegates: NSObject {
         self.ref = Database.database().reference()
         //updating the todo using the particular generared unique key of the todo
         self.ref.child("ToDo").child((todoDict.object(forKey: ID)) as! String).setValue(todoDict)
-        sqliteManager.updateTodoRecordFromDB(tbl_name: TABLE_TODO, newTodoString: (todoDict.object(forKey: TODO_MSG) as! String), whereField1: ID, whereFieldValue1: ((todoDict.object(forKey: ID)as! String)), whereField2: USER_ID, whereFieldValue2: ((todoDict.object(forKey: USER_ID)as! String)))
+        print(todoDict)
+        sqliteManager.updateTodoRecordFromDB(tbl_name: TABLE_TODO, newTodoString: (todoDict.object(forKey: TODO) as! String), whereField1: ID, whereFieldValue1: ((todoDict.object(forKey: ID)as! String)), whereField2: USER_ID, whereFieldValue2: ((todoDict.object(forKey: USER_ID)as! String)))
         self.delegate?.firebaseSucceedResponseClass(responseobj: "Success")
     }
 

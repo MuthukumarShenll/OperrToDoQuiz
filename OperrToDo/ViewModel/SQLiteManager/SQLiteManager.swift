@@ -209,7 +209,7 @@ class SQLiteManager: NSObject {
     func updateTodoRecordFromDB(tbl_name:String,newTodoString: String,whereField1:String,whereFieldValue1:String, whereField2:String,whereFieldValue2:String){
         
         let updateStatementStirng = "UPDATE " + tbl_name + "SET todo = " + newTodoString + " WHERE " + whereField1 + "=" + whereFieldValue1 + " AND " + whereField2 + "=" + whereFieldValue2
-        var deleteStatement: OpaquePointer? = nil
+        var updateStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(dbSQLite, updateStatementStirng, -1, &updateStatement, nil) == SQLITE_OK {
             if sqlite3_step(updateStatement) == SQLITE_DONE {
                 print("Successfully updated row.")
